@@ -1,0 +1,223 @@
+#video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Place it behind everything */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-size: 50% 100%;
+}
+
+.container {
+    text-align: center;
+    background: #011516;
+    padding: 20px;
+    border-radius: 10px; /* Reduced for mobile */
+    box-shadow: 0 0 50px rgba(31, 200, 222, 0.698);
+    width: 80%; /* Adjusted for mobile */
+    max-width: 400px; /* Limit maximum width */
+}
+
+h1 {
+    font-size: 28px; /* Reduced for mobile */
+    color: #011919f3;
+    margin-top: 5px;
+    margin-bottom: 18px;
+    text-shadow: 2px 2px 2px rgb(0, 255, 229), 0 0 0.1em rgb(0, 255, 229), 0 0 0.1em rgb(0, 255, 229);
+}
+
+.difficulty {
+    margin-bottom: 10px;
+}
+
+.difficulty button {
+    margin: 5px;
+    padding: 8px 16px; /* Reduced padding for mobile */
+    font-size: 14px; /* Reduced font size for mobile */
+    cursor: pointer;
+    border: 1px solid #00ffcc;
+    border-radius: 10px;
+    background: #011919f3;
+    color: #00ffcc;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.difficulty button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.timer {
+    font-size: 20px; /* Reduced for mobile */
+    margin-top: 10px;
+    margin-bottom: 20px; /* Adjusted for mobile */
+    color: #011010f3;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgb(0, 255, 229), 0 0 0.1em rgb(0, 255, 229), 0 0 0.1em rgb(0, 255, 229);
+}
+
+#sudoku-board {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr); /* Use fractional units for responsiveness */
+    grid-template-rows: repeat(9, 1fr); /* Use fractional units for responsiveness */
+    gap: 2px;
+    margin: 10px auto; /* Centered */
+    background: rgb(0, 11, 11);
+    border: 3px solid #333;
+    border-radius: 10px; /* Reduced for mobile */
+    box-shadow: 0 0 20px #00ffcc, 0 0 20px #00bbffc6;
+    aspect-ratio: 1; /* Ensure the board is square */
+    max-width: 90vw; /* Limit maximum width for mobile */
+}
+
+#sudoku-board div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(0, 33, 35);
+    font-size: 16px; /* Reduced for mobile */
+    background: rgb(0, 0, 0);
+    color: rgb(42, 4, 4);
+    border: 1px solid #00ffcc;
+    text-shadow: 0 0 3px #00ffcc;
+    transition: background 0.3s;
+    aspect-ratio: 1; /* Ensure cells are square */
+}
+
+#sudoku-board div:hover {
+    background: #f4f4f4;
+}
+
+#sudoku-board div[contenteditable="true"] {
+    background: #f2f2f1;
+}
+
+#sudoku-board div[contenteditable="true"]:focus {
+    background: #8bdce7df;
+    outline: none;
+}
+
+#solve, #reset {
+    margin: 10px;
+    padding: 8px 16px; /* Reduced padding for mobile */
+    font-size: 14px; /* Reduced font size for mobile */
+    cursor: pointer;
+    border: 1px solid #00ffcc;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #000c0c, #043f4497);
+    color: #00ffcc;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#solve:hover, #reset:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#message {
+    margin-top: 10px;
+    font-size: 14px; /* Reduced for mobile */
+    color: #00ffcc;
+    font-weight: bold;
+}
+
+#check {
+    margin: 10px;
+    padding: 8px 16px; /* Reduced padding for mobile */
+    font-size: 14px; /* Reduced font size for mobile */
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #007295, #032f3a);
+    color: white;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#check:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px #00ccff, 0 0 25px #0066ff;
+}
+
+#celebration {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px; /* Reduced for mobile */
+    color: #00ffcc;
+    text-shadow: 0 0 20px #00ffcc;
+    z-index: 1000;
+}
+
+#celebration.active {
+    display: flex;
+    animation: celebrate 2s ease-in-out;
+}
+
+@keyframes celebrate {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px; /* Reduced padding for mobile */
+        border-radius: 15px; /* Reduced for mobile */
+    }
+
+    h1 {
+        font-size: 24px; /* Further reduced for smaller screens */
+    }
+
+    .difficulty button {
+        padding: 6px 12px; /* Further reduced padding for smaller screens */
+        font-size: 12px; /* Further reduced font size for smaller screens */
+    }
+
+    .timer {
+        font-size: 18px; /* Further reduced for smaller screens */
+    }
+
+    #sudoku-board div {
+        font-size: 14px; /* Further reduced for smaller screens */
+    }
+
+    #solve, #reset, #check {
+        padding: 6px 12px; /* Further reduced padding for smaller screens */
+        font-size: 12px; /* Further reduced font size for smaller screens */
+    }
+
+    #message {
+        font-size: 12px; /* Further reduced for smaller screens */
+    }
+
+    #celebration {
+        font-size: 24px; /* Further reduced for smaller screens */
+    }
+}

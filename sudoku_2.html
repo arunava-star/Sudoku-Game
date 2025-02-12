@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Game</title>
+    <link rel="stylesheet" href="sudoku_2updated.css">
+</head>
+<body>
+    <!-- Video Background -->
+    <video autoplay muted loop id="video-background">
+        <source src="media_2/Math Formula Science Equation Symbols Written on Chalkboard Moving 4K Motion Wallpaper Background (1).mp4" type="video/mp4">
+    </video>
+    <div class="container">
+        <!-- <h1>
+            <img src="media/sudoku-27-16802 (1).gif" alt="Sudoku Image">
+        </h1> -->
+        <h1>Sudoku</h1>
+        <div class="difficulty">
+            <button id="easy">Easy</button>
+            <button id="medium">Medium</button>
+            <button id="hard">Hard</button>
+        </div>
+        <div class="timer">Time: <span id="time">00:00</span></div>
+        <div id="sudoku-board"></div>
+        
+        <!-- Button Group -->
+        <div class="button-group">
+            <button id="solve">Solve</button>
+            <button id="reset">Reset</button>
+        </div>
+        <button id="check">Check Answer</button>
+        
+        <div id="message"></div>
+        <div id="celebration"></div>
+    </div>
+    <div contenteditable="true" inputmode="numeric"></div>
+    <script src="sudoku_2updated.js"></script>
+</body>
+</html>
